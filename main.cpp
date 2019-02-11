@@ -45,7 +45,6 @@ int genRandNum() {
 	rn = rand() % 2; 
 
 	return rn; 
-	 
 }
 
 void random_state(std::vector<std::vector<int> > &vec) {

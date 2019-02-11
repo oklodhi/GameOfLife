@@ -1,14 +1,15 @@
 #ifndef MAIN_H_
 #define	MAIN_H_
 
-#include <iostream> // io
-#include <string> // strings
-#include <vector> // vector
-#include <cstdlib>
-#include <random> 
-#include <stdio.h> // NULL
-#include <stdlib.h> // srand, rand
-#include <time.h> // time
+//A C++ implementation of Conway's cellular automaton Game of Life
+// https://robertheaton.com/2018/07/20/project-2-game-of-life/
+
+#include <iostream> /* io */
+#include <string> /* string */
+#include <vector> /* vectors */
+#include <stdio.h> /* NULL */
+#include <stdlib.h> /* srand, rand */
+#include <time.h> /* time */
 
 std::vector<std::vector<int> > boardVect;
 
