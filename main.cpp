@@ -18,7 +18,7 @@ int main() {
 }
 
 void resize_board(std::vector<std::vector<int> > &vect, int w, int h) {
-	std::cout << "\nYou picked a board of " + std::to_string(width) + " x " + std::to_string(height) + " size." << std::endl << std::endl;
+	std::cout << "\nYou picked a board of size " + std::to_string(width) + " x " + std::to_string(height) << std::endl << std::endl;
 	std::cout << "Resizing..." << std::endl; 
 
 	vect.resize(w);
@@ -30,7 +30,7 @@ void resize_board(std::vector<std::vector<int> > &vect, int w, int h) {
 }
 
 void dead_state(std::vector<std::vector<int> > &vec) {
-	std::cout << "Initializing board values to 0..." << std::endl;
+	std::cout << "Initializing board values to NULL..." << std::endl;
 
 	for (std::size_t i = 0; i < vec.size(); i++) {
 		for (std::size_t j = 0; j < vec[i].size(); j++) {
@@ -38,7 +38,7 @@ void dead_state(std::vector<std::vector<int> > &vec) {
 		}
 	}
 
-	std::cout << "Done! Board is set to 0!" << std::endl << std::endl;
+	std::cout << "Done! Board is set to NULL!" << std::endl << std::endl;
 }
 
 int genRandNum() {
@@ -49,7 +49,7 @@ int genRandNum() {
 }
 
 void random_state(std::vector<std::vector<int> > &vec) {
-	std::cout << "\nSetting board values to random 1's and 0's..." << std::endl;
+	std::cout << "\nSetting board to random values..." << std::endl;
 
 	for (std::size_t i = 0; i < vec.size(); i++) {
 		for (std::size_t j = 0; j < vec[i].size(); j++) {
@@ -57,7 +57,7 @@ void random_state(std::vector<std::vector<int> > &vec) {
 		}
 	}
 
-	std::cout << "Done! Board is set to random 1's and 0's!" << std::endl << std::endl;
+	std::cout << "Done! Board is set to random values!" << std::endl << std::endl;
 }
 
 void print_board(std::vector<std::vector<int> > &vec) {
@@ -66,7 +66,12 @@ void print_board(std::vector<std::vector<int> > &vec) {
 	for (std::size_t i = 0; i < vec.size(); i++) {
 		std::cout << "[ ";
 		for (std::size_t j = 0; j < vec[i].size(); j++) {
-			std::cout << vec[i][j] << " "; 
+			if (vec[i][j] == 0) {
+				std::cout << "  "; 
+			}
+			else if (vec[i][j] == 1) {
+				std::cout << "# ";
+			}
 		}
 		std::cout << "]" << std::endl;
 	}
