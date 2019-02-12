@@ -75,3 +75,42 @@ void print_board(std::vector<std::vector<int> > &vec) {
 		std::cout << "]" << std::endl;
 	}
 }
+
+void check_neighbors(std::vector<std::vector<int> > &vec) {
+	for (std::size_t i = 0; i < vec.size(); i++) {
+		for (std::size_t j = 0; j < vec[i].size(); j++) {
+
+			// If current index is not a border index
+			if ((i > 0 && i < vec.size()) && (j > 0 && j < vec[i].size())) {
+				// loop through each neighboring index
+				for (int a = (i - 1); a <= (i + 1); a++) {
+					for (int b = (j - 1); b <= (j + 1); b++) {
+						// if not (i,j) aka center index
+						if ((a != i) && (b != j)) {
+							if (vec[a][b] == 1) {
+								// add to the count of alive neightbors,				will use this to perform conditionals
+								aliveNeighborCount++; 
+							}
+						}
+					}
+				}
+				// Checks neighbor index 1 by 1
+				/*if (vec[i + 1][j + 1] == 1) {
+					aliveNeighborCount++;
+				}*/
+			}
+			// else if border element, then must be corner index
+			else if ((i == 0 && j == 0) || (i == 0 && j == n) || (i == n && j == 0) || (i == n && j == n)) {
+
+			}
+			// or side index
+			else {
+
+			}
+		}
+	}
+}
+
+void next_board_state(std::vector<std::vector<int> > &vec) {
+	
+}

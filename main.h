@@ -13,7 +13,7 @@
 
 std::vector<std::vector<int> > boardVect;
 
-int width, height, rn; 
+int width, height, rn, aliveNeighborCount; 
 
 int main(); 
 
@@ -27,4 +27,7 @@ void random_state   (std::vector<std::vector<int> > &vec);
 
 void print_board(std::vector<std::vector<int> > &vec);
 
+void check_neighbors(std::vector<std::vector<int> > &vec);
+
+void next_board_state(std::vector<std::vector<int> > &vec);
 #endif
