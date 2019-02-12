@@ -1,6 +1,10 @@
+// Source file containing all function definitions
+
+// include the header file
 #include "main.h"
 
 int main() {
+	// Prompt user input for board size
 	std::cout << "What size board do you want? >> ";
 	std::cin >> width >> height; 
 
@@ -17,6 +21,7 @@ int main() {
 	return 0; 
 }
 
+// resizes board based on user input from main()
 void resize_board(std::vector<std::vector<int> > &vect, int w, int h) {
 	std::cout << "\nYou picked a board of size " + std::to_string(width) + " x " + std::to_string(height) << std::endl << std::endl;
 	std::cout << "Resizing..." << std::endl; 
@@ -29,6 +34,8 @@ void resize_board(std::vector<std::vector<int> > &vect, int w, int h) {
 	std::cout << "Game board is ready!" << std::endl << std::endl;
 }
 
+
+// generates a board of size nxn to 0
 void dead_state(std::vector<std::vector<int> > &vec) {
 	std::cout << "Initializing board values to NULL..." << std::endl;
 
@@ -41,12 +48,14 @@ void dead_state(std::vector<std::vector<int> > &vec) {
 	std::cout << "Done! Board is set to NULL!" << std::endl << std::endl;
 }
 
+// generate random number based on time seed in main
 int genRandNum() {
 	rn = rand() % 2; 
 
 	return rn; 
 }
 
+// regenerate board with random 1 and 0 index values
 void random_state(std::vector<std::vector<int> > &vec) {
 	std::cout << "\nSetting board to random values..." << std::endl;
 
@@ -59,6 +68,7 @@ void random_state(std::vector<std::vector<int> > &vec) {
 	std::cout << "Done! Board is set to random values!" << std::endl << std::endl;
 }
 
+// pretty print the board 
 void print_board(std::vector<std::vector<int> > &vec) {
 	std::cout << "Printing current board... " << std::endl;
 
@@ -76,6 +86,7 @@ void print_board(std::vector<std::vector<int> > &vec) {
 	}
 }
 
+// check neighboring indexes
 void check_neighbors(std::vector<std::vector<int> > &vec) {
 	for (std::size_t i = 0; i < vec.size(); i++) {
 		for (std::size_t j = 0; j < vec[i].size(); j++) {
@@ -111,6 +122,7 @@ void check_neighbors(std::vector<std::vector<int> > &vec) {
 	}
 }
 
+// generates next board state based on conditionals with AliveNeighborCount
 void next_board_state(std::vector<std::vector<int> > &vec) {
 	
 }

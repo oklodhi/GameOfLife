@@ -4,6 +4,9 @@
 //A C++ implementation of Conway's cellular automaton Game of Life
 // https://robertheaton.com/2018/07/20/project-2-game-of-life/
 
+
+// Header file containing all function declarations
+
 #include <iostream> /* io */
 #include <string> /* string */
 #include <vector> /* vectors */
