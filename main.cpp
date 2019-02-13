@@ -97,8 +97,8 @@ void check_neighbors(std::vector<std::vector<int> > &vec) {
 			if ((i > 0 && j > 0) && (i < (vec.size() - 1) && j < (vec[i].size() - 1))) {
 				// loop through each neighboring index
 				//std::cout << "MIDDLE Row " << i << " Col " << j << std::endl;
-				for (std::size_t row = (i - 1); row < (i + 1); row++) {
-					for (std::size_t col = (j - 1); col < (j + 1); col++) {
+				for (std::size_t row = (i - 1); row < (i + 2); row++) {
+					for (std::size_t col = (j - 1); col < (j + 2); col++) {
 						// if not (i,j) aka center index
 						if (((row != i) && (col != j)) && (vec[row][col] == 1)) {
 							//if (vec[row][col] == 1) {
@@ -165,16 +165,100 @@ void check_neighbors(std::vector<std::vector<int> > &vec) {
 				}
 				else { // or middle = 5 neighbors
 					//std::cout << "EDGE Row " << i << " Col " << j << std::endl;
+					if (i == 0 && (j > 0 && (j < vec[i].size() - 1))) {
+						if (vec[i][j - 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i + 1][j - 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i + 1][j] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i + 1][j + 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i][j + 1] == 1) {
+							aliveNeighborCount++;
+						}
+					}
+					else if ((i == vec.size() - 1) && (j > 0 && (j < vec[i].size() - 1))) {
+						if (vec[i][j - 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i - 1][j - 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i - 1][j] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i - 1][j + 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i][j + 1] == 1) {
+							aliveNeighborCount++;
+						}
+					}
+					else if ((i > 0 && (i < vec.size() - 1)) && j == 0) {
+						if (vec[i - 1][j] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i - 1][j + 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i][j + 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i + 1][j + 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i + 1][j] == 1) {
+							aliveNeighborCount++;
+						}
+					}
+					else if ((i > 0 && (i < vec.size() - 1)) && (j == vec[i].size() - 1)) {
+						if (vec[i - 1][j] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i - 1][j - 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i][j - 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i + 1][j - 1] == 1) {
+							aliveNeighborCount++;
+						}
+						if (vec[i + 1][j] == 1) {
+							aliveNeighborCount++;
+						}
+					}
 				}
-
 			}
+			// std::cout << i << "," << j << " Alive neighbors: " << aliveNeighborCount << std::endl;
+
+			next_board_state(vec, i, j, aliveNeighborCount); 
+
+			// Have to reset aliveNeighborCount otherwise it sums ALL alive neighbors
+			aliveNeighborCount = 0; 
+
+			print_board(vec);
 		}
 	}
-
-	std::cout << "Total alive neighbors are... " << aliveNeighborCount << std::endl; 
 }
 
 // generates next board state based on conditionals with AliveNeighborCount
-void next_board_state(std::vector<std::vector<int> > &vec) {
-	
+void next_board_state(std::vector<std::vector<int> > &vec, int i, int j, int count) {
+	if (count == 0 || count == 1) {
+		vec[i][j] = 0; 
+	}
+	else if (count == 2 || count == 3) {
+		vec[i][j] = 1;
+	}
+	else if (count == 3 && vec[i][j] == 0) {
+		vec[i][j] = 1;
+	}
+	else {
+		vec[i][j] = 0;
+	}
 }

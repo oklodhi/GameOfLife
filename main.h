@@ -32,5 +32,5 @@ void print_board(std::vector<std::vector<int> > &vec);
 
 void check_neighbors(std::vector<std::vector<int> > &vec);
 
-void next_board_state(std::vector<std::vector<int> > &vec);
+void next_board_state(std::vector<std::vector<int> > &vec, int i, int j, int count);
 #endif
