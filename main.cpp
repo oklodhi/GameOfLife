@@ -13,12 +13,23 @@ int main() {
 
 	print_board(boardVect); 
 
+	Sleep(5000);
+	system("CLS");
+
 	srand((unsigned int)time(NULL));
 	random_state(boardVect); 
 
 	print_board(boardVect); 
 
-	check_neighbors(boardVect);
+	Sleep(5000);
+	system("CLS");
+
+	while (true) {
+		check_neighbors(boardVect);
+		Sleep(1000);
+		system("CLS");
+		print_board(boardVect);
+	}
 
 	return 0; 
 }
@@ -241,8 +252,6 @@ void check_neighbors(std::vector<std::vector<int> > &vec) {
 
 			// Have to reset aliveNeighborCount otherwise it sums ALL alive neighbors
 			aliveNeighborCount = 0; 
-
-			print_board(vec);
 		}
 	}
 }

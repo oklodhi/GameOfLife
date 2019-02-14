@@ -11,8 +11,9 @@
 #include <string> /* string */
 #include <vector> /* vectors */
 #include <stdio.h> /* NULL */
-#include <stdlib.h> /* srand, rand */
+#include <stdlib.h> /* srand, rand, system(CLS) */
 #include <time.h> /* time */
+#include <windows.h> /* Sleep */
 
 std::vector<std::vector<int> > boardVect;
 
