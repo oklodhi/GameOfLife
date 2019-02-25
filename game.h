@@ -13,6 +13,7 @@
 #include <stdlib.h> /* srand, rand, system(CLS) */
 #include <time.h> /* time */
 #include <windows.h> /* Sleep */
+#include <fstream> /* File IO */
 
 int main(); 
 
@@ -33,3 +34,5 @@ void check_neighbors(std::vector<std::vector<int> > &vec);
 void next_board_state(std::vector<std::vector<int> > &vec, int i, int j, int count);
 
 void cmd_wait_clear();
+
+void open_and_read(std::ifstream& fio);

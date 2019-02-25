@@ -249,6 +249,29 @@ void next_board_state(std::vector<std::vector<int> > &vec, int i, int j, int cou
 }
 
 void cmd_wait_clear() {
-	Sleep(3000);
+	Sleep(2222);
 	system("CLS");
+}
+
+void open_and_read(std::ifstream& fio) {
+	std::string fname; 
+
+	std::cout << "Enter file name >> "; 
+	std::cin >> fname;
+
+	fio.open(fname);
+
+	if (fio.is_open() == true) {
+
+		int n, i = 0;
+		std::vector<std::vector<int> > fileData;
+
+		while (fio >> n) {
+			
+		}
+		std::cout << std::endl;
+	}
+	else {
+		std::cout << "\nERROR: Can't open file!" << std::endl << std::endl;
+	}
 }
