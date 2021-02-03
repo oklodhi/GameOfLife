@@ -5,4 +5,4 @@ This is my implementation of the popular simulation of Conway's Game of Life. Th
 
 - A C++ IDE / compiler
 
-![](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#/media/File:Gospers_glider_gun.gif) *GIF of Conway's Game of Life*
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif) *GIF of Conway's Game of Life*
